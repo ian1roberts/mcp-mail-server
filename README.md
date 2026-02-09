@@ -171,7 +171,7 @@ mcpServers:
 
 ## Acknowledgements
 
-We would like to express our gratitude to the original authors and contributors of the [mcp-mail-server](https://github.com/zhuyunfei/mcp-mail-server) repository. This fork builds upon their excellent foundation to provide enhanced timezone support and specialized deployment guides for the LibreChat and Raspberry Pi communities.
+We would like to express our gratitude to the original authors and contributors of the [mcp-mail-server](https://github.com/yunfeizhu/mcp-mail-server) repository. This fork builds upon their excellent foundation to provide enhanced timezone support and specialized deployment guides for the LibreChat and Raspberry Pi communities.
 
 ## License
 
