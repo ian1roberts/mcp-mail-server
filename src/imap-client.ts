@@ -17,7 +17,7 @@ export interface EmailMessage {
   uid: number;
   id?: number;
   flags: string[];
-  date: string; // 改为字符串格式，使用中国东八区时间
+  date: string; // ISO or formatted date string
   size: number;
   // 使用解析后的内容作为主要字段
   subject: string;
@@ -251,10 +251,13 @@ export class IMAPClient extends EventEmitter {
         msg.once('attributes', (attrs) => {
           message.uid = attrs.uid;
           message.flags = attrs.flags || [];
-          // 转换为中国东八区时间格式
+          
           const date = attrs.date || new Date();
-          message.date = date.toLocaleString('zh-CN', { 
-            timeZone: 'Asia/Shanghai',
+          const timeZone = process.env.TIMEZONE || Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+          const locale = process.env.LOCALE || 'en-US';
+          
+          message.date = date.toLocaleString(locale, { 
+            timeZone,
             year: 'numeric',
             month: '2-digit', 
             day: '2-digit',
