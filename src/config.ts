@@ -49,5 +49,9 @@ export const EMAIL_CONFIG = {
     username: getRequiredEnvVar('EMAIL_USER'),
     password: getRequiredEnvVar('EMAIL_PASS'),
     secure: getRequiredBooleanEnvVar('SMTP_SECURE')
-  }
+  },
+
+  // 时间与区域配置
+  TIMEZONE: process.env.TIMEZONE || Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC',
+  LOCALE: process.env.LOCALE || 'en-US'
 };
