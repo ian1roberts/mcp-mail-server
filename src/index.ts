@@ -1468,9 +1468,12 @@ class MailMCPServer {
   }
 
   private async handleGetConnectionStatus() {
+    const timeZone = EMAIL_CONFIG.TIMEZONE;
+    const locale = EMAIL_CONFIG.LOCALE;
+    
     const status = {
-      timestamp: new Date().toLocaleString('zh-CN', { 
-        timeZone: 'Asia/Shanghai',
+      timestamp: new Date().toLocaleString(locale, { 
+        timeZone,
         year: 'numeric',
         month: '2-digit', 
         day: '2-digit',
